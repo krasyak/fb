@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve myproject
+After=network.target
+
+[Service]
+User=uu
+Group=www-data
+WorkingDirectory=/home/uu/fb
+Environment="PATH=/home/uu/fb/env/bin"
+ExecStart=/home/uu/fb/env/bin/uwsgi --ini fb.ini
+
+[Install]
+WantedBy=multi-user.target
